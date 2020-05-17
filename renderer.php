@@ -82,20 +82,20 @@ class renderer_plugin_autotooltip extends Doku_Renderer_xhtml {
 				$this->doc = preg_replace('/<!--PN-->/','',$this->doc);
 		}
 
-		function header($text, $level, $pos) {
-				parent::header($text, $level, $pos);
-
-				if ($this->_displayPN()) {
-						$pnid = $this->_getID($this->getConf('numbering')?2:1);
-						$linkText = $this->getConf('linkText') ? $pnid : '§';
-
-						$link = '&nbsp;<a href="#'.$pnid.'" id="'.$pnid;
-						$link .= '" class="pn" title="'.$this->getLang('sectionlink').'">'.$linkText.'</a>';
-						$link .= $this->_getAnnotationLink();
-
-						$this->doc = preg_replace('/(<\/h[1-5]>)$/', $link.'\\1', $this->doc);
-				}
-		}
+//		function header($text, $level, $pos) {
+//				parent::header($text, $level, $pos);
+//
+//				if ($this->_displayPN()) {
+//						$pnid = $this->_getID($this->getConf('numbering')?2:1);
+//						$linkText = $this->getConf('linkText') ? $pnid : '§';
+//
+//						$link = '&nbsp;<a href="#'.$pnid.'" id="'.$pnid;
+//						$link .= '" class="pn" title="'.$this->getLang('sectionlink').'">'.$linkText.'</a>';
+//						$link .= $this->_getAnnotationLink();
+//
+//						$this->doc = preg_replace('/(<\/h[1-5]>)$/', $link.'\\1', $this->doc);
+//				}
+//		}
 
 		function p_open() {
 				$eventdata = array(
