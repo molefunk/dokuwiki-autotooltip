@@ -1,4 +1,7 @@
-# Auto-Tooltip plugin for dokuwiki
+# Auto-Tooltip plugin for dokuwiki, merged with purplenumbers
+
+For the non-hacked-together plugin, see https://github.com/zioth/dokuwiki-autotooltip
+
 
 Documentation may be found at: http://dokuwiki.org/plugin:autotooltip
 
