@@ -2,7 +2,6 @@
 if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/');
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 if(!defined('DOKU_REL')) define('DOKU_REL', '/dokuwiki/');
-require_once(DOKU_PLUGIN.'syntax.php');
 
 /**
  * Auto-Tooltip DokuWiki plugin
@@ -116,11 +115,11 @@ class syntax_plugin_autotooltip extends DokuWiki_Syntax_Plugin {
 			if ($data == 'ERROR') {
 				msg('Error: Invalid instantiation of autotooltip plugin');
 			}
-			else if ($data['pageid']) {
-				$renderer->doc .= $this->m_helper->forWikilink($data['pageid'], $data['content'], '', $data['classes']);
+			else if (isset($data['pageid'])) {
+				$renderer->doc .= $this->m_helper->forWikilink($data['pageid'], $data['content']??'', '', $data['classes']??'');
 			}
 			else {
-				$renderer->doc .= $this->m_helper->forText($data['content'], $data['tip'], $data['title'], '', $data['classes']);
+				$renderer->doc .= $this->m_helper->forText($data['content']??'', $data['tip']??'', $data['title']??'', '', $data['classes']??'');
 			}
 		}
 		else {
@@ -128,7 +127,7 @@ class syntax_plugin_autotooltip extends DokuWiki_Syntax_Plugin {
 				$renderer->doc .= 'Error: Invalid instantiation of autotooltip plugin';
 			}
 			else {
-				$renderer->doc .= $data['content'];
+				$renderer->doc .= $data['content'] ?? '';
 			}
 		}
 	}
